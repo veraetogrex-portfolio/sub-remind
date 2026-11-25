@@ -1,0 +1,191 @@
+/* VECTOR Renew · remind before the charge — zero dependencies. The whole 1440×900 app screen. */
+.sr{
+  --sr-bg:#07080C; --sr-side:#0B0C11; --sr-panel:#0E1016; --sr-well:#10121A; --sr-tile:#0F1117; --sr-cell:#12141B;
+  --sr-line:#191B23; --sr-line-2:#1E2029; --sr-line-3:#262935; --sr-row:#171922;
+  --sr-text:#EDEAE3; --sr-text-2:#C9CBD4; --sr-muted:#9A9CA8; --sr-dim:#858896;
+  --sr-bell:#F2A93B; --sr-bell-soft:#F2C27A; --sr-bell-bg:#261C0E; --sr-bell-pick:#1E170D; --sr-bell-nav:#211A10; --sr-bell-line:#4A3518; --sr-bell-edge:#6B4A1E; --sr-on-bell:#1A1206;
+  --sr-paper:#EDEAE3; --sr-note-paper:#E9E4D8; --sr-ink:#14110C;
+  --sr-ease:cubic-bezier(.77,0,.175,1); --sr-out:cubic-bezier(.16,1,.3,1); --sr-state:cubic-bezier(.23,1,.32,1);
+  position:relative; width:1440px; height:900px; overflow:hidden; display:flex;
+  background:var(--sr-bg); color:var(--sr-text); font-family:var(--font, Geist, system-ui, sans-serif);
+  font-size:14px; line-height:normal; -webkit-font-smoothing:antialiased;
+}
+.sr :where(*, *::before, *::after){box-sizing:border-box}
+.sr :where(h1, h2, p, fieldset, legend){margin:0; padding:0; border:0}
+.sr :where(button){font:inherit; color:inherit; cursor:pointer; background:none; border:0; padding:0}
+.sr :where(a){color:inherit; text-decoration:none}
+.sr :where(img){display:block; max-width:none}
+.sr :where(i){font-style:normal}
+.sr :where(button, a, input):focus-visible{outline:2px solid var(--sr-bell); outline-offset:2px}
+.sr .sr-sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.sr .sr-ph{position:relative; overflow:hidden; display:block; flex:none; background:#1A1C24; outline:1px solid rgba(255,255,255,.08); outline-offset:-1px}
+.sr .sr-ph img{width:100%; height:100%; object-fit:cover}
+.sr .sr-card{background:var(--sr-panel); border:1px solid #1B1E27; border-radius:14px}
+.sr .sr-muted{color:var(--sr-muted)}
+.sr .sr-num{font-variant-numeric:tabular-nums}
+.sr .sr-h2{font-size:15px; font-weight:600}
+.sr .sr-sec-h{display:flex; align-items:baseline; justify-content:space-between}
+.sr .sr-small{font-size:12.5px; color:var(--sr-muted)}
+.sr .sr-link{font-size:13px; color:var(--sr-bell); font-weight:500}
+.sr .sr-btn{height:34px; padding:0 14px; border-radius:9px; border:1px solid #2A2D39; font-size:13px; font-weight:600; transition:border-color .15s}
+.sr .sr-btn:hover{border-color:#3A3E4C}
+
+/* sidebar */
+.sr .sr-side{width:232px; flex:none; background:var(--sr-side); border-right:1px solid var(--sr-line); display:flex; flex-direction:column; gap:4px; padding:22px 14px 18px}
+.sr .sr-logo{display:flex; align-items:center; gap:10px; padding:0 10px 22px; font-size:16px}
+.sr .sr-logo b{font-weight:700; letter-spacing:.02em}
+.sr .sr-logo span{color:var(--sr-muted)}
+.sr .sr-nav{display:flex; align-items:center; gap:12px; height:38px; padding:0 10px; border-radius:8px; color:#B9BBC6; font-weight:500; transition:background-color .2s, color .2s}
+.sr .sr-nav:hover{color:var(--sr-text)}
+.sr .sr-nav.is-on{background:var(--sr-bell-nav); color:var(--sr-text)}
+.sr .sr-nav.is-on svg{color:var(--sr-bell)}
+.sr .sr-count{margin-left:auto; min-width:20px; height:20px; border-radius:10px; background:#1C1F29; color:var(--sr-text-2); font-size:11.5px; display:grid; place-items:center}
+.sr .sr-side-foot{margin-top:auto; display:flex; flex-direction:column; gap:14px}
+.sr .sr-tile{padding:14px; border-radius:12px; background:var(--sr-tile); border:1px solid #1B1E27}
+.sr .sr-bar{height:4px; border-radius:2px; background:#22252F; margin-top:10px; display:flex; overflow:hidden}
+.sr .sr-bar span{background:var(--sr-bell)}
+.sr .sr-me{display:flex; align-items:center; gap:10px; padding:0 4px}
+
+/* top bar */
+.sr .sr-col{flex:1; min-width:0; display:flex; flex-direction:column}
+.sr .sr-top{height:65px; flex:none; display:flex; align-items:center; gap:14px; padding:0 28px; border-bottom:1px solid var(--sr-line)}
+.sr .sr-search{flex:1; max-width:460px; height:40px; border-radius:10px; background:var(--sr-well); border:1px solid var(--sr-line-2); display:flex; align-items:center; gap:10px; padding:0 14px; color:var(--sr-dim); font-size:13.5px}
+.sr .sr-search input{flex:1; border:0; background:transparent; color:var(--sr-text); font:inherit; outline:none}
+.sr .sr-search input::placeholder{color:var(--sr-dim)}
+.sr .sr-top-r{margin-left:auto; display:flex; align-items:center; gap:8px}
+.sr .sr-ghost{height:38px; padding:0 16px; border-radius:10px; border:1px solid var(--sr-line-3); font-size:13.5px; font-weight:500; display:flex; align-items:center; gap:8px}
+.sr .sr-ib{width:36px; height:36px; border-radius:50%; color:#B9BBC6; display:inline-grid; place-items:center; position:relative}
+.sr .sr-dot{position:absolute; top:2px; right:0; min-width:17px; height:17px; border-radius:9px; background:var(--sr-bell); color:var(--sr-on-bell); font-size:10.5px; font-weight:700; display:grid; place-items:center}
+
+/* views */
+.sr .sr-views{flex:1; min-height:0; position:relative}
+.sr .sr-view{position:absolute; inset:0; display:flex; opacity:0; visibility:hidden; transition:opacity .28s var(--sr-out), visibility 0s .28s}
+.sr .sr-view.is-on{opacity:1; visibility:visible; transition:opacity .28s var(--sr-out)}
+
+/* overview */
+.sr .sr-over{gap:24px; padding:24px 28px}
+.sr .sr-over-main{flex:1; min-width:0; display:flex; flex-direction:column; gap:18px}
+.sr .sr-h1{font-size:26px; font-weight:700; letter-spacing:-.01em; line-height:1.2}
+.sr .sr-sub{margin-top:6px; font-size:14px; color:var(--sr-muted)}
+.sr .sr-tabs{display:flex; gap:4px; padding:4px; border-radius:10px; background:var(--sr-panel); border:1px solid #1B1E27}
+.sr .sr-tabs button{height:30px; padding:0 12px; border-radius:7px; color:var(--sr-muted); font-size:13px; font-weight:500}
+.sr .sr-tabs button[aria-pressed="true"]{background:#1C1F29; color:var(--sr-text)}
+.sr .sr-cal{display:grid; grid-template-columns:repeat(7, 1fr); gap:4px; text-align:center}
+.sr .sr-cal-h{font-size:11.5px; color:var(--sr-dim); margin-bottom:4px}
+.sr .sr-cd{height:34px; border-radius:8px; display:grid; place-items:center; font-size:12.5px; color:var(--sr-text-2); position:relative}
+.sr .sr-cd .sr-t{position:absolute; left:50%; top:50%; width:26px; height:26px; margin:-13px 0 0 -13px; border-radius:50%; overflow:hidden; background:#1A1C24; box-shadow:0 0 0 2px var(--sr-panel)}
+.sr .sr-cd .sr-t img{width:100%; height:100%; object-fit:cover}
+.sr .sr-cd .sr-t.is-pick{box-shadow:0 0 0 2px var(--sr-panel), 0 0 0 3.5px var(--sr-text)}
+.sr .sr-split{height:10px; border-radius:5px; display:flex; gap:3px; overflow:hidden}
+.sr .sr-legend{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-size:12.5px; color:var(--sr-text-2)}
+.sr .sr-legend span{display:flex; align-items:center; gap:6px}
+.sr .sr-legend i{width:8px; height:8px; border-radius:2px}
+.sr .sr-hint-ic{width:40px; height:40px; border-radius:11px; background:var(--sr-bell-bg); display:grid; place-items:center; color:var(--sr-bell); flex:none}
+.sr .sr-row{display:grid; grid-template-columns:36px 1fr 130px 96px 132px; align-items:center; gap:14px; height:49px; padding:0 16px; border-top:1px solid var(--sr-row); font-size:13.5px; transition:background-color .15s}
+.sr a.sr-row:hover, .sr a.sr-row.li-hover{background:#141720}
+.sr .sr-row.is-flag{background:var(--sr-cell)}
+.sr .sr-row-h{height:33px; font-size:12px; color:var(--sr-dim)}
+.sr .sr-row b{font-weight:600}
+.sr .sr-rem{display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 9px; border-radius:12px; font-size:12px; font-weight:500; white-space:nowrap; border:1px solid #262935; color:var(--sr-dim)}
+.sr .sr-rem.is-on{background:var(--sr-bell-bg); color:var(--sr-bell-soft); border-color:var(--sr-bell-line)}
+.sr .sr-over-side{width:320px; flex:none; display:flex; flex-direction:column; gap:16px}
+.sr .sr-box{padding:18px; display:flex; flex-direction:column; gap:14px}
+.sr .sr-li{display:flex; align-items:center; gap:12px}
+.sr .sr-li > div{flex:1}
+.sr .sr-card-chip{width:56px; height:38px; border-radius:6px; background:var(--sr-note-paper); position:relative; flex:none}
+.sr .sr-feed{display:flex; gap:12px; align-items:center; font-size:13px; color:var(--sr-text-2)}
+.sr .sr-feed span:nth-child(2){flex:1}
+.sr .sr-feed span:last-child{font-size:12px; color:var(--sr-muted)}
+
+/* subscription */
+.sr .sr-sub-main{flex:1; min-width:0; display:flex; flex-direction:column; gap:16px; padding:20px 28px}
+.sr .sr-crumbs{font-size:13px; color:var(--sr-muted)}
+.sr .sr-crumbs a{color:var(--sr-text-2)}
+.sr .sr-chip{display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 10px; border-radius:13px; border:1px solid var(--sr-line-3); font-size:12.5px; color:var(--sr-text-2); white-space:nowrap}
+.sr .sr-strip{position:relative; width:780px; height:140px}
+.sr .sr-days{display:flex; gap:4px}
+.sr .sr-day{width:52px; height:140px; border-radius:10px; background:var(--sr-cell); border:1px solid var(--sr-line); padding-top:10px; text-align:center; flex:none;
+  transition:background-color .25s var(--sr-state), border-color .25s var(--sr-state)}
+.sr .sr-day .w{display:block; font-size:11.5px; color:var(--sr-dim)}
+.sr .sr-day .n{display:block; font-size:18px; font-weight:600; margin-top:3px; font-variant-numeric:tabular-nums; transition:color .25s var(--sr-state)}
+.sr .sr-day.we .n{color:var(--sr-muted)}
+.sr .sr-day.is-charge{background:#171A22; border-color:#3A3D49}
+.sr .sr-day.is-charge .n{color:var(--sr-text)}
+/* the day the bell lands on lights up once the bell is there */
+.sr .sr-day.is-remind:not(.is-charge){background:var(--sr-bell-bg); border-color:var(--sr-bell-edge); transition-delay:.62s}
+.sr .sr-day.is-remind:not(.is-charge) .n{color:var(--sr-bell-soft); transition-delay:.62s}
+/* the charge tag: a paper object, it never moves */
+.sr .sr-tag{position:absolute; left:499px; top:102px; width:62px; height:28px; border-radius:7px; background:var(--sr-paper); color:var(--sr-ink); font-size:13px; font-weight:700; display:grid; place-items:center; font-variant-numeric:tabular-nums; box-shadow:0 2px 6px rgba(0,0,0,.45)}
+/* the reminder bell: one transform carries it along the strip, the inner block lifts it off the date */
+.sr .sr-bell{position:absolute; left:510px; top:62px; width:40px; height:30px; transform:translateX(calc(var(--lead, 0) * -56px)); transition:transform .74s var(--sr-ease); z-index:2}
+.sr .sr-bell i{width:100%; height:100%; border-radius:8px; background:var(--sr-bell); color:var(--sr-on-bell); display:grid; place-items:center; box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.sr .sr-bell.is-hop i{animation:sr-hop .74s var(--sr-ease)}
+@keyframes sr-hop{
+  0%{transform:none; box-shadow:0 2px 6px rgba(0,0,0,.45)}
+  30%{transform:translateY(-12px) scale(1.08); box-shadow:0 16px 22px rgba(0,0,0,.6)}
+  72%{transform:translateY(-8px) scale(1.06); box-shadow:0 12px 18px rgba(0,0,0,.55)}
+  100%{transform:none; box-shadow:0 2px 6px rgba(0,0,0,.45)}
+}
+/* the bracket from the bell to the charge: a 7-day line scaled from its right end, it trails the bell */
+.sr .sr-span{position:absolute; left:158px; top:76px; width:372px; border-top:2px solid var(--sr-bell); transform-origin:100% 0; transform:scaleX(var(--span, 0)); transition:transform .74s var(--sr-ease)}
+.sr .sr-tick{position:absolute; left:528px; top:76px; height:26px; border-left:2px solid var(--sr-bell); opacity:0; transition:opacity .2s}
+.sr .sr-span-t{position:absolute; top:56px; width:140px; text-align:center; font-size:12.5px; font-weight:600; color:var(--sr-bell-soft); white-space:nowrap; opacity:0; transform:translateY(4px); transition:opacity .2s, transform .2s var(--sr-out)}
+.sr .sr-span-t span{background:var(--sr-panel); border-radius:4px; padding:0 4px}
+.sr[data-lead]:not([data-lead="0"]) .sr-tick{opacity:1}
+.sr[data-lead]:not([data-lead="0"]) .sr-span-t{opacity:1; transform:none; transition:opacity .3s .6s, transform .3s .6s var(--sr-out)}
+.sr .sr-hist{display:grid; grid-template-columns:1fr 92px 64px; align-items:center; height:41px; border-top:1px solid var(--sr-row); font-size:13.5px}
+.sr .sr-watch{display:flex; align-items:center; gap:12px}
+.sr .sr-watch > div{flex:1}
+.sr .sr-watch .sr-bar span{background:var(--sr-text-2); border-radius:2px}
+
+/* reminder panel */
+.sr .sr-rp{width:340px; flex:none; border-left:1px solid var(--sr-line); background:var(--sr-side); padding:22px 24px 20px; display:flex; flex-direction:column; gap:16px}
+.sr .sr-rp h2{font-size:17px; font-weight:600}
+.sr .sr-label{font-size:12.5px; color:var(--sr-muted); margin-bottom:8px}
+.sr .sr-opts{display:flex; flex-direction:column; gap:8px}
+.sr .sr-opt{display:flex; align-items:center; gap:12px; padding:11px 14px; border-radius:12px; border:1px solid var(--sr-line-3); cursor:pointer; transition:border-color .15s, background-color .15s}
+.sr .sr-opt:hover, .sr .sr-opt.li-hover{border-color:#4A3E2A}
+.sr .sr-opt:has(input:checked){border-color:var(--sr-bell); background:var(--sr-bell-pick)}
+.sr .sr-opt input{width:16px; height:16px; accent-color:var(--sr-bell); margin:0; flex:none}
+.sr .sr-opt b{display:block; font-size:14px; font-weight:600}
+.sr .sr-opt small{display:block; font-size:12.5px; color:var(--sr-muted); margin-top:2px}
+.sr .sr-segs{display:flex; gap:4px; padding:4px; border-radius:10px; background:var(--sr-cell); border:1px solid var(--sr-line-2)}
+.sr .sr-seg{flex:1; height:34px; border-radius:7px; color:#B9BBC6; font-size:13px; font-weight:500}
+.sr .sr-seg[aria-pressed="true"]{background:#22252F; color:var(--sr-text)}
+.sr .sr-time{height:32px; padding:0 12px; border-radius:9px; border:1px solid var(--sr-line-3); display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums}
+.sr .sr-sw{width:34px; height:20px; border-radius:10px; background:#2A2D39; position:relative; flex:none; transition:background-color .15s}
+.sr .sr-sw i{position:absolute; left:2px; top:2px; width:16px; height:16px; border-radius:50%; background:var(--sr-text-2); transition:transform .2s var(--sr-state), background-color .15s}
+.sr .sr-sw[aria-checked="true"]{background:var(--sr-bell)}
+.sr .sr-sw[aria-checked="true"] i{transform:translateX(14px); background:var(--sr-on-bell)}
+/* summary and notification share one slot: the dark summary gives way to the paper notification */
+.sr .sr-slot{display:grid}
+.sr .sr-slot > *{grid-area:1 / 1}
+.sr .sr-sum{align-self:start; border-radius:12px; background:var(--sr-cell); border:1px solid var(--sr-line-2); padding:12px 14px; display:flex; flex-direction:column; gap:8px; font-size:13px; transition:opacity .15s}
+.sr .sr-sum > div{display:flex; justify-content:space-between}
+.sr .sr-sum-r{color:var(--sr-bell-soft); font-weight:600}
+.sr .sr-note{border-radius:12px; background:var(--sr-note-paper); color:var(--sr-ink); padding:12px 14px; display:flex; gap:12px; align-items:flex-start; box-shadow:0 6px 18px rgba(0,0,0,.5);
+  opacity:0; visibility:hidden; transform:translateY(14px) scale(.96); transform-origin:50% 100%; transition:opacity .2s, transform .2s, visibility 0s .2s}
+.sr .sr-note > div{flex:1; min-width:0}
+.sr .sr-note-h{display:flex; justify-content:space-between; font-size:11.5px; color:#5C574C}
+.sr .sr-note-t{font-size:13.5px; font-weight:700; margin-top:2px}
+.sr .sr-note-s{font-size:12.5px; color:#3A3428; margin-top:2px}
+.sr[data-saved="true"] .sr-sum{opacity:0}
+.sr[data-saved="true"] .sr-note{opacity:1; visibility:visible; transform:none; transition:opacity .25s .08s, transform .5s .08s var(--sr-out)}
+.sr .sr-act{margin-top:auto; display:flex; flex-direction:column; gap:10px}
+.sr .sr-save{height:46px; border-radius:12px; border:1px solid var(--sr-line-3); background:#14161D; color:var(--sr-dim); font-size:15px; font-weight:600; display:flex; align-items:center; justify-content:center; gap:8px;
+  transition:background-color .2s, color .2s, border-color .2s, transform .15s var(--sr-out)}
+.sr .sr-save:disabled{cursor:default}
+.sr .sr-save:not(:disabled){background:var(--sr-bell); border-color:var(--sr-bell); color:var(--sr-on-bell)}
+.sr .sr-save:not(:disabled):active{transform:scale(.97)}
+.sr .sr-save svg{display:none}
+.sr[data-saved="true"] .sr-save{background:var(--sr-bell-bg); border-color:var(--sr-bell); color:var(--sr-text)}
+.sr[data-saved="true"] .sr-save svg{display:block; color:var(--sr-bell); animation:sr-pop .3s var(--sr-out)}
+.sr .sr-foot{font-size:12px; color:var(--sr-muted); text-align:center}
+@keyframes sr-pop{from{transform:scale(.25); opacity:0}}
+
+.sr.is-instant *, .sr.is-instant *::before{transition:none !important; animation:none !important}
+
+@media (prefers-reduced-motion: reduce){
+  .sr .sr-bell, .sr .sr-span, .sr .sr-view, .sr .sr-note{transition-duration:.01s}
+  .sr .sr-bell.is-hop i{animation:none}
+}
